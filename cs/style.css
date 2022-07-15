@@ -74,11 +74,49 @@ h1{
     grid-template-columns: repeat(8,auto);
     grid-gap: 15px;
     justify-content: center;
+    align-items: center;
     margin: 70px;
+    flex-wrap: wrap;
+    perspective: 1000px;
 }
 
-.card{
-    height: 240px;
-    width: 160px;
+/* used to be .card */
+
+.front,.back{
+    position: absolute;
+    backface-visibility: hidden;
 }
 
+.front{
+    height: 260px;
+    width: 180px;
+    border-radius: .35em;
+    transform: rotateY(180deg);
+    /* position: relative; */
+}
+
+.back{
+    height: 260px;
+    width: 180px;
+    border-radius: .45em;
+    position: relative;
+    /* position: absolute; */
+}
+
+
+.match-box-card{
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    
+}
+
+.match-box-card:active {
+    /* transform: scale(0.97); */
+    transition: transform .2s;
+}
+
+.match-box-card.flip {
+    transform:rotateY(-180deg) ;
+}
