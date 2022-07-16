@@ -5,15 +5,15 @@
 }
 
 @font-face {
-    font-family: 'calfineregular';
-    src: url('calfineregular-4b6nd-webfont.woff2') format('woff2'),
-         url('calfineregular-4b6nd-webfont.woff') format('woff');
+    font-family: calfineregular;
+    src: url(calfineregular-4b6nd-webfont.woff2) format(woff2),
+         url(calfineregular-4b6nd-webfont.woff) format(woff);
     font-weight: normal;
     font-style: normal;
 }
 
 body{
-    font-family: 'calfinregular', Arial, sans-serif; 
+    font-family: calfinregular, Arial, sans-serif; 
     margin: 0;
     background: radial-gradient(#FF69B4,white);
 }
@@ -36,6 +36,7 @@ nav{
 
 h2{
     /* font-size: 4rem; */
+    font-family: 'Prompt', sans-serif;
     font-size: 32px;
     display: inline-block;
     cursor: pointer;
@@ -55,7 +56,7 @@ h1{
     font-family: 'calfinregular', Arial, sans-serif; 
     /* background-image: url('heart-pink-unscreen.gif');
     background-repeat:repeat;  */
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--clr-neon);
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--clr-neon) ;
     /* text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor; */
     font-size: 84px;
     font-weight: bold;
@@ -63,6 +64,10 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.MatchBoxLogo{
+    filter: drop-shadow(10px 5px 4px #FF69B4);
 }
   
 .rowUnderTitle{
@@ -130,7 +135,7 @@ h1{
     transform:rotateY(-180deg) ;
 }
 
-@media (max-width: 768px){
+@media (max-width: 480px){
     h1{
         font-size: 32px;
     }
