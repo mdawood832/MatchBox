@@ -50,6 +50,7 @@ nav{
 h2{
     /* font-size: 4rem; */
     font-family: 'Prompt', sans-serif;
+    filter: drop-shadow(10px 5px 4px #FF69B4);
     font-size: 32px;
     display: inline-block;
     cursor: pointer;
@@ -112,6 +113,8 @@ h1{
 .front,.back{
     position: absolute;
     backface-visibility: hidden;
+    filter: drop-shadow(10px 5px 4px #FF69B4);
+
 }
 
 .front{
