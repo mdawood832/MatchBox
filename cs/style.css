@@ -1,11 +1,19 @@
+
 :root {
     --clr-neon: hsl(317 100% 54%);
     --clr-bg: hsl(323 21% 16%);
 }
 
+@font-face {
+    font-family: 'calfineregular';
+    src: url('calfineregular-4b6nd-webfont.woff2') format('woff2'),
+         url('calfineregular-4b6nd-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body{
-    font-family: 'Cormorant', serif;
+    font-family: 'calfinregular', Arial, sans-serif; 
     margin: 0;
     background: radial-gradient(#FF69B4,white);
 }
@@ -44,6 +52,7 @@ h2{
 /* BODY */
 
 h1{
+    font-family: 'calfinregular', Arial, sans-serif; 
     /* background-image: url('heart-pink-unscreen.gif');
     background-repeat:repeat;  */
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--clr-neon);
@@ -119,4 +128,30 @@ h1{
 
 .match-box-card.flip {
     transform:rotateY(-180deg) ;
+}
+
+@media (max-width: 768px){
+    h1{
+        font-size: 32px;
+    }
+    .matchGif{
+        display: none;
+    }
+    h2{
+        font-size: 16px;
+        justify-content:space-evenly;
+    }
+
+    .cards{
+        grid-template-columns: repeat(4,auto);
+        margin: 12px;
+    }
+    .front,.back{
+        height: 120px;
+        width: 80px;
+    }
+    html{
+        min-height: 50vh;
+
+    }
 }
