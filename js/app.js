@@ -20,9 +20,14 @@ flips = document.querySelector('.flips')
 
 function FlipCard () {
     this.classList.toggle('flip')
-    // flips--
     // console.log(flips)
 }
+
+function decreaseFlips () {
+    flips --
+    flips.innerHTML = `Flips: ${flips}`
+}
+
 // ----------------------------------------------------------------------------------->
 // TIMER   
 totalTime = 101;
@@ -50,6 +55,11 @@ function startGame() {
 
         // shuffle function 
         RandomCards(allCards)
+
+        // count flips
+        allCards.addEventListener("click" , decreaseFlips())
+
+       
     })
 }
 

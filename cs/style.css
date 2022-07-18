@@ -36,7 +36,7 @@ nav{
 
 .startGamebtn{
     font-family: 'Prompt', sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     display: inline-block;
     color: var(--clr-neon);
     border: var(--clr-neon) 0.01em thin;
@@ -53,7 +53,7 @@ h2{
     /* font-size: 4rem; */
     font-family: 'Prompt', sans-serif;
     filter: drop-shadow(10px 5px 4px #FF69B4);
-    font-size: 32px;
+    font-size: 28px;
     display: inline-block;
     cursor: pointer;
     text-decoration: none;
@@ -82,9 +82,11 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 40px;
 }
 
 .MatchBoxLogo{
+    width: 600px;
     filter: drop-shadow(10px 5px 4px #FF69B4);
 }
   
@@ -107,7 +109,7 @@ h1{
     grid-gap: 15px;
     justify-content: center;
     align-items: center;
-    margin: 70px;
+    margin: 40px;
     flex-wrap: wrap;
     perspective: 1000px;
 }
@@ -122,18 +124,21 @@ h1{
 }
 
 .front{
-    height: 260px;
-    width: 180px;
+    height: 210px;
+    width: 130px;
     border-radius: .35em;
     transform: rotateY(180deg);
+    margin-bottom: 10px;
     /* position: relative; */
 }
 
 .back{
-    height: 260px;
-    width: 180px;
+    height: 210px;
+    width: 130px;
     border-radius: .45em;
     position: relative;
+    margin-bottom: 10px;
+
     /* position: absolute; */
 }
 
