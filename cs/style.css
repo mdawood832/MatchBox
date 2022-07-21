@@ -160,6 +160,15 @@ h1{
     transform:rotateY(-180deg) ;
 }
 
+.match-box-card.antiFlip {
+    transform:rotateY(180deg) ;
+
+}
+
+.keepStill {
+    position: absolute;
+}
+
 @media (max-width: 480px){
     h1{
         font-size: 32px;

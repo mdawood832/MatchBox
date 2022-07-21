@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="cs/style.css">
-    <script src="js/app.js " defer  ></script>
+    <script src="js/app.js " defer ></script>
     <link rel="stylesheet" href="stylesheet.css" type="css" charset="utf-8" />
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Prompt:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400&display=swap" rel="stylesheet">
@@ -23,9 +23,13 @@
 <!-- Row underneath the title  -->
 <div class="rowUnderTitle">
     <div>
-       <h2><button class="startGamebtn" onclick="startGame()">Start Game</button></h2>
+       <h2><button class="startGamebtn" >Start Game</button></h2>
     </div>
-    
+
+    <div class="playerNumber">
+        <h2>Player #</h2>
+    </div>
+
     <div>
         <h2 class="time">Time 100</h2>
     </div>
@@ -37,78 +41,80 @@
     <div>
         <h2 class="score">Score</h2>
     </div>
+
+
 </div>
 
     <div class="cards">
         <!-- 777 CARDS  -->
-        <div class="match-box-card">
+        <div class=" tripleSeven match-box-card" name="tripleSeven">
             <img class=" front card tripleSeven" src="images/wallpaper.jpeg" alt="777-wonderful things are about to happen">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
-        <div class="match-box-card">
+        <div class=" tripleSeven match-box-card" name="tripleSeven">
             <img class=" front face card tripleSeven" src="images/wallpaper.jpeg" alt="777-wonderful things are about to happen">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
         <!-- DO NOT FEAR CHANGE CARDS  -->
-        <div class="match-box-card">
+        <div class="match-box-card" name="doNotFear">
             <img class=" front card doNotFear" src="images/doNotFearChange.JPG" alt="do not fear change">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
-        <div class="match-box-card">
+        <div class="match-box-card" name="doNotFear">
             <img class=" front card doNotFear" src="images/doNotFearChange.JPG" alt="do not fear change">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
         <!-- I AM BETTER THAN I WAS CARDS  -->
-        <div class="match-box-card">
+        <div class="match-box-card" name="IamBetter">
             <img class=" front card IamBetter" src="images/iAmBetter.JPG" alt="I am better than I was">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
-        <div class="match-box-card">
+        <div class="match-box-card" name="IamBetter">
             <img class=" front card IamBetter" src="images/iAmBetter.JPG" alt="I am better than I was">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
         <!-- IF YOU CHANGE CARDS  -->
-        <div class="match-box-card">
+        <div class="match-box-card" name="IfYouChange">
             <img class=" front card IfYouChange" src="images/ifYouChange.JPG" alt="If you change the way you look at things, the things you look at will change">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
-        <div class="match-box-card">
+        <div class="match-box-card" name="IfYouChange">
             <img class=" front card IfYouChange" src="images/ifYouChange.JPG" alt="If you change the way you look at things, the things you look at will change">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
         <!-- YOU ARE ENOUGH CARDS  -->
-        <div class="match-box-card">
+        <div class="match-box-card" name="enough">
             <img class=" front card enough" src="images/youAreEnough.JPG" alt="you Are Enough">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
-        <div class="match-box-card">
+        <div class="match-box-card" name="enough">
             <img class=" front card enough" src="images/youAreEnough.JPG" alt="you Are Enough">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
         <!-- SKELETONS CARDS -->
-        <div class="match-box-card">
+        <div class="match-box-card" name ="skeletons">
             <img class=" front card skeletons" src="images/skeletons.JPG" alt="two skeletons traveling between dimensions">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
-        <div class="match-box-card">
+        <div class="match-box-card" name ="skeletons">
             <img class=" front card skeletons" src="images/skeletons.JPG" alt="two skeletons traveling between dimensions">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
         <!-- BE KIND CARDS  -->
-        <div class="match-box-card">
+        <div class="match-box-card" name ="beKind" >
             <img class=" front card beKind" src="images/beKindToYourself.JPG" alt="be kind to yourself">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
-        <div class="match-box-card">
+        <div class="match-box-card" name ="beKind" >
             <img class=" front card beKind" src="images/beKindToYourself.JPG" alt="be kind to yourself">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
         <!-- MOON CARDS  -->
-        <div class="match-box-card">
+        <div class="match-box-card" name ="moon" >
             <img class=" front card moon" src="images/theMoon.JPG" alt="the moon">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
-        <div class="match-box-card">
+        <div class="match-box-card" name ="moon">
             <img class=" front card moon" src="images/theMoon.JPG" alt="the moon">
             <img class=" back" src="images/Untitled (1).jpg" alt="back of card ">
         </div>
