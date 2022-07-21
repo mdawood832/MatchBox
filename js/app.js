@@ -29,6 +29,7 @@ class MatchBox {
             console.log("in the flip card function")
             this.numberOfClicks++
             this.flips.innerHTML = `Flips: ${this.numberOfClicks}`
+            card.classList.add('flip')
             
         }
 
@@ -52,7 +53,6 @@ function game (){
     // add an event listener on click
     // once the user clicks the start button 
     // call the method start Game in matchbox class
-    // let start = document.querySelector('.startGamebtn')
     start.addEventListener('click' , ()=>{
         newGame.startGame()})
     allCards.forEach(card => card.addEventListener('click', () => {
