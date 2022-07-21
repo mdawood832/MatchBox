@@ -35,6 +35,16 @@ class MatchBox {
 
     }
 
+    RandomCards(){
+        this.cards.forEach(card => {
+        let position = Math.floor(Math.random()*16)
+        card.style.order = position
+        })
+    }
+
+
+
+
     letPlayerFlipCard (card) {
         return true 
         // return !this.active && !this.correctCards.includes(card) && card !== this.checkingCard
@@ -54,7 +64,11 @@ function game (){
     // once the user clicks the start button 
     // call the method start Game in matchbox class
     start.addEventListener('click' , ()=>{
-        newGame.startGame()})
+        newGame.startGame()
+    })
+    
+    newGame.RandomCards()
+
     allCards.forEach(card => card.addEventListener('click', () => {
         newGame.flipCard(card)
     } ))
@@ -131,15 +145,6 @@ class Player {
 // }
         
 // -----------------------------------------------------------------------------------> 
-
-// let flips = 10
-// flips = document.querySelector('.flips')
-// let cardClicked 
-// function FlipCard (card) {
-//     // do not touch
-//     this.classList.toggle('flip')
-
-// }
 
 
 // ----------------------------------------------------------------------------------->
