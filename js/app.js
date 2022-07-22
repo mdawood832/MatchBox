@@ -1,3 +1,6 @@
+// *************************************************
+// MATCHBOX CLASS 
+// *************************************************
 class MatchBox {
     constructor (time, cards) {
         this.cards = cards
@@ -17,9 +20,15 @@ class MatchBox {
         this.correctCards =[]
         this.cardsChosen =[]
         this.active = true
+        setTimeout (() => {
+            this.RandomCards() 
+            this.startTimer = this.timerforGame()
+            this.active = false 
+        }, 500)
         this.comparingCard = ""
-        this.RandomCards()
-        this.startTimer = this.timerforGame()
+        // this.RandomCards()
+        // this.startTimer = this.timerforGame()
+        this.doNotShowCards()
     }
 
     flipCard(card){
@@ -60,7 +69,9 @@ class MatchBox {
 
         if(this.scoreKeeper === 8){
             this.wonGame()
-            console.log("won!")
+        }
+        if (this.scoreKeeper <8 && this.timeRemaining === 0){
+            this.lostGame()
         }
     }
 
@@ -92,8 +103,8 @@ class MatchBox {
     }
 
     letPlayerFlipCard (card) {
-        return true
-        // return !this.active && !this.correctCards.includes(card) && card !== this.checkingCard
+        // return true
+        return !this.active && !this.correctCards.includes(card) && card !== this.checkingCard
     }
 
     timerforGame () {
@@ -115,13 +126,60 @@ class MatchBox {
     }
 
     wonGame () {
+        console.log("won!")
+        this.score.innerHTML = "YOU WON"
+        // this.calculateScore()
         clearInterval(this.startTimer)
+        this.doNotShowCards()
     }
 
     lostGame () {
+        console.log("lost!")
         clearInterval(this.startTimer)
+        this.score.innerHTML = "Lost Game"
+        this.doNotShowCards()
     }
+
+    // calculateScore(){
+    //     let finalScore  = this.timeRemaining/this.scoreKeeper
+    // }
 }
+
+// *************************************************
+// PLAYER CLASS - instantiating two players ( 1 & 2 ) 
+// *************************************************
+class Player {
+    constructor (name,timeRemaining){
+        this.name = name
+        this.totalFlips = 10
+        this.totalTime = 100
+        // this.timeRemaining = timeRemaining
+        // pass in time remaining from the time function 
+        // when the timer stops because the player is out of flips
+        // this.flipsRemaining  = flipsRemaining
+        // if there are any flips remaining when the player
+        // matches all the cards
+        // this.totalScore = totalScore
+
+    }
+    displayPlayerNumber (){
+        PlayerNumber = document.querySelector('.playerNumber')
+        PlayerNumber.innerHTML = `Player ${this.name}`
+    }
+
+    // calculateScore () {
+
+    // }
+
+
+}
+
+
+const player1 = new Player("player1")
+const player2 = new Player("player2")
+console.log(player1)
+console.log(player2)
+
 
 
 function game (){
@@ -147,37 +205,3 @@ function game (){
 game()
 
 
-// *************************************************
-// PLAYER CLASS - instantiating two players ( 1 & 2 ) 
-// *************************************************
-class Player {
-    constructor (name,timeRemaining){
-        this.name = name
-        this.totalFlips = 10
-        this.totalTime = 100
-        // this.timeRemaining = timeRemaining
-        // pass in time remaining from the time function 
-        // when the timer stops because the player is out of flips
-        // this.flipsRemaining  = flipsRemaining
-        // if there are any flips remaining when the player
-        // matches all the cards
-        // this.totalScore = totalScore
-
-    }
-    displayPlayerNumber (){
-        PlayerNumber = document.querySelector('.playerNumber')
-        PlayerNumber.innerHTML = `Player ${this.name}`
-    }
-
-    calculateScore () {
-
-    }
-
-
-}
-
-
-// const player1 = new Player("player1")
-// const player2 = new Player("player2")
-// console.log(player1)
-// console.log(player2)
