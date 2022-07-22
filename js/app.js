@@ -5,12 +5,14 @@ class MatchBox {
         this.timeRemaining = time
         this.timer = document.querySelector('.time')
         this.flips = document.querySelector('.flips')
+        this.score = document.querySelector('.score')
     }
 
     startGame() {
         console.log("in the start game function")
         this.checkingCard = null
         this.numberOfClicks = 0
+        this.scoreKeeper = 0
         this.timeRemaining = this.time
         this.correctCards =[]
         this.cardsChosen =[]
@@ -53,8 +55,10 @@ class MatchBox {
     ifCardsMatch(card1, card2){
         this.correctCards.push(card1)
         this.correctCards.push(card2)
+        this.scoreKeeper++
+        this.score.innerHTML =`Score: ${this.scoreKeeper}`
 
-        if(this.correctCards.length === this.cards){
+        if(this.scoreKeeper === 8){
             this.wonGame()
             console.log("won!")
         }
@@ -88,7 +92,7 @@ class MatchBox {
     }
 
     letPlayerFlipCard (card) {
-        return true 
+        return true
         // return !this.active && !this.correctCards.includes(card) && card !== this.checkingCard
     }
 
