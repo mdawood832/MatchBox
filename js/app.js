@@ -1,9 +1,3 @@
-// *************************************************
-// const matchBoxCard = document.querySelectorAll('.match-box-card')
-// allCards = Array.from(matchBoxCard)
-// matchBoxCard.forEach(card => card.addEventListener('click', FlipCard))
-// *************************************************
-
 class MatchBox {
     constructor (time, cards) {
         this.cards = cards
@@ -22,6 +16,8 @@ class MatchBox {
         this.cardsChosen =[]
         this.active = true
         this.comparingCard = ""
+        this.RandomCards()
+        this.timerforGame()
     }
 
     flipCard(card){
@@ -42,12 +38,22 @@ class MatchBox {
         })
     }
 
-
-
+    doNotShowCards () {
+        this.cards.forEach(card => {
+            card.classList.remove('flip')
+        })
+    }
 
     letPlayerFlipCard (card) {
         return true 
         // return !this.active && !this.correctCards.includes(card) && card !== this.checkingCard
+    }
+
+    timerforGame () {
+        return setInterval(() => {
+            this.timeRemaining--
+            this.timer.innerHTML = `Time: ${this.timeRemaining}`
+        },1000)
     }
 
 }
@@ -63,32 +69,17 @@ function game (){
     // add an event listener on click
     // once the user clicks the start button 
     // call the method start Game in matchbox class
+    // *****START BUTTON************
     start.addEventListener('click' , ()=>{
         newGame.startGame()
     })
-    
-    newGame.RandomCards()
-
+    // *****FLIPPING CARDS************
     allCards.forEach(card => card.addEventListener('click', () => {
         newGame.flipCard(card)
     } ))
 
 }
 game()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // *************************************************
@@ -144,28 +135,7 @@ class Player {
 //     console.log(card)})
 // }
         
-// -----------------------------------------------------------------------------------> 
-
-
 // ----------------------------------------------------------------------------------->
-// TIMER   
-// totalTime = 101;
-// let time = document.querySelector('.time')
-
-// function timer() {
-//     totalTime--
-//     time.innerHTML = `Time ${totalTime}`
-// }
-
-
-// ----------------------------------------------------------------------------------->
-// START GAME FUNCTION
-// function startGame() {
-    // let start = document.querySelector('.startGamebtn')
-    // start.addEventListener('click' , () => {
-//         // check event listener 
-//         console.log("clicked")
-  
 //         timer()
 //         const timerInterval = setInterval(timer,1000)
 
