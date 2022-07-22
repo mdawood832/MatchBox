@@ -17,7 +17,7 @@ class MatchBox {
         this.active = true
         this.comparingCard = ""
         this.RandomCards()
-        this.timerforGame()
+        this.startTimer = this.timerforGame()
     }
 
     flipCard(card){
@@ -26,9 +26,52 @@ class MatchBox {
             this.numberOfClicks++
             this.flips.innerHTML = `Flips: ${this.numberOfClicks}`
             card.classList.add('flip')
-            
+
+            if(this.checkingCard){
+                this.doCardsMatch(card)
+            }
+            else{
+                this.checkingCard = card
+            }
         }
 
+    }
+
+    doCardsMatch (card) {
+        if (this.getCardSource(card) === this.getCardSource(this.checkingCard)){
+            console.log("do match")
+            this.ifCardsMatch(card, this.checkingCard)
+        }
+        else {
+            console.log("do not match")
+            this.ifCardsDoNotMatch(card, this.checkingCard)
+        }
+        this.checkingCard = null
+    }
+
+
+    ifCardsMatch(card1, card2){
+        this.correctCards.push(card1)
+        this.correctCards.push(card2)
+
+        if(this.correctCards.length === this.cards){
+            this.wonGame()
+            console.log("won!")
+        }
+    }
+
+    ifCardsDoNotMatch (card1, card2){
+        this.active = true
+        setTimeout (() => {
+            card1.classList.remove('flip')
+            card2.classList.remove('flip')
+            this.active = false
+        },1000)
+
+    }
+
+    getCardSource (card) {
+        return card.querySelector('.front').src
     }
 
     RandomCards(){
@@ -53,9 +96,27 @@ class MatchBox {
         return setInterval(() => {
             this.timeRemaining--
             this.timer.innerHTML = `Time: ${this.timeRemaining}`
+            if (this.timeRemaining === 0) {
+                this.stopGame()
+            }
         },1000)
     }
 
+    stopGame () {
+        //does not let player flip cards anymore
+        // and flips to the back
+        this.doNotShowCards()
+        //stop the timer once game is done
+        clearInterval(this.startTimer)
+    }
+
+    wonGame () {
+        clearInterval(this.startTimer)
+    }
+
+    lostGame () {
+        clearInterval(this.startTimer)
+    }
 }
 
 
@@ -116,39 +177,3 @@ class Player {
 // const player2 = new Player("player2")
 // console.log(player1)
 // console.log(player2)
-
-
-// // *************************************************
-// const matchBoxCard = document.querySelectorAll('.match-box-card')
-// matchBoxCard.forEach(card => card.addEventListener('click', FlipCard))
-// // *************************************************
-// ----------------------------------------------------------------------------------->
-// creating an array for all the cards 
-// allCards = Array.from(matchBoxCard)
-// console.log(allCards)
-// ----------------------------------------------------------------------------------->
-// SHUFFLING CARDS 
-// function RandomCards (arr) {
-//   arr.forEach(card => {
-//     let position = Math.floor(Math.random()*16)
-//     card.style.order = position
-//     console.log(card)})
-// }
-        
-// ----------------------------------------------------------------------------------->
-//         timer()
-//         const timerInterval = setInterval(timer,1000)
-
-//         function stopTimer() {
-//             clearInterval(timerInterval)
-//         }
-//         setTimeout(stopTimer, 100000)
-
-//         // shuffle function 
-//         RandomCards(allCards)
-       
-//     })
-// }
-
-// ----------------------------------------------------------------------------------->
-

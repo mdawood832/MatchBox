@@ -161,7 +161,7 @@ h1{
 }
 
 .match-box-card.antiFlip {
-    transform:rotateY(180deg) ;
+    transform:rotateY(0) ;
 
 }
 
