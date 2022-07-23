@@ -2,7 +2,9 @@
 // MATCHBOX CLASS 
 // *************************************************
 class MatchBox {
-    constructor (time, cards) {
+    constructor (time, cards, playerNumber) {
+        this.playerNumber = playerNumber
+        this.displayPlayer = document.querySelector('.playerNumber')
         this.cards = cards
         this.time = time
         this.timeRemaining = time
@@ -16,6 +18,7 @@ class MatchBox {
         this.checkingCard = null
         this.numberOfClicks = 0
         this.scoreKeeper = 0
+        // this.displayPlayer.innerHTML = `Player: ${this.playerNumber}`
         this.timeRemaining = this.time
         this.correctCards =[]
         this.cardsChosen =[]
@@ -70,9 +73,6 @@ class MatchBox {
         if(this.scoreKeeper === 8){
             this.wonGame()
         }
-        if (this.scoreKeeper <8 && this.timeRemaining === 0){
-            this.lostGame()
-        }
     }
 
     ifCardsDoNotMatch (card1, card2){
@@ -82,6 +82,8 @@ class MatchBox {
             card2.classList.remove('flip')
             this.active = false
         },1000)
+
+
 
     }
 
@@ -102,6 +104,10 @@ class MatchBox {
         })
     }
 
+    resetScore () {
+        this.score.innerHTML = 'Score'
+    }
+
     letPlayerFlipCard (card) {
         // return true
         return !this.active && !this.correctCards.includes(card) && card !== this.checkingCard
@@ -112,7 +118,11 @@ class MatchBox {
             this.timeRemaining--
             this.timer.innerHTML = `Time: ${this.timeRemaining}`
             if (this.timeRemaining === 0) {
-                this.stopGame()
+                if (this.scoreKeeper < 8){
+                    this.lostGame()
+                }
+
+                // this.stopGame()
             }
         },1000)
     }
@@ -123,62 +133,33 @@ class MatchBox {
         this.doNotShowCards()
         //stop the timer once game is done
         clearInterval(this.startTimer)
+        this.resetScore()
     }
 
     wonGame () {
         console.log("won!")
-        this.score.innerHTML = "YOU WON"
-        // this.calculateScore()
-        clearInterval(this.startTimer)
-        this.doNotShowCards()
+        setTimeout (() => {
+            let finalScore  = (this.timeRemaining/this.scoreKeeper)*10
+            this.score.innerHTML = `Score: ${finalScore}, YOU WON!`
+            clearInterval(this.startTimer)
+            this.doNotShowCards()
+        },500)
+    
     }
 
     lostGame () {
+        this.score.innerHTML = "Lost Game"
         console.log("lost!")
         clearInterval(this.startTimer)
-        this.score.innerHTML = "Lost Game"
         this.doNotShowCards()
+        this.stopGame
     }
 
-    // calculateScore(){
-    //     let finalScore  = this.timeRemaining/this.scoreKeeper
-    // }
 }
 
 // *************************************************
 // PLAYER CLASS - instantiating two players ( 1 & 2 ) 
 // *************************************************
-class Player {
-    constructor (name,timeRemaining){
-        this.name = name
-        this.totalFlips = 10
-        this.totalTime = 100
-        // this.timeRemaining = timeRemaining
-        // pass in time remaining from the time function 
-        // when the timer stops because the player is out of flips
-        // this.flipsRemaining  = flipsRemaining
-        // if there are any flips remaining when the player
-        // matches all the cards
-        // this.totalScore = totalScore
-
-    }
-    displayPlayerNumber (){
-        PlayerNumber = document.querySelector('.playerNumber')
-        PlayerNumber.innerHTML = `Player ${this.name}`
-    }
-
-    // calculateScore () {
-
-    // }
-
-
-}
-
-
-const player1 = new Player("player1")
-const player2 = new Player("player2")
-console.log(player1)
-console.log(player2)
 
 
 
@@ -186,22 +167,72 @@ function game (){
     // selecting all the cards, creating an array from them, 
     // and then passing them to the MatchBox class 
     let start = document.querySelector('.startGamebtn')
+    // let start2 = document.querySelector('.startGamebtn2')
     let allCards = Array.from(document.querySelectorAll('.match-box-card'))
-    let newGame = new MatchBox(100, allCards)
+    let newGame = new MatchBox(60, allCards)
+    // ^^^^^^do not touch
+
+    // let player1Game = new MatchBox(10,allCards, 1)
+    // let player2Game = new MatchBox(10,allCards, 2)
+
+    // class Player {
+    //     constructor (score){
+    //         this.score = score
+    //     }
+        
+    
+    // }
+    
+
+
+    // if (finalScorePlayer1 > finalScorePlayer2) {
+    //     return "Player 1 won"
+    // }
+    // else {
+    //     return "Player 2 won"
+    // }
+    
+
+
     // selecting the start button in html so I can 
     // add an event listener on click
     // once the user clicks the start button 
     // call the method start Game in matchbox class
     // *****START BUTTON************
+
+    // start.addEventListener('click' , ()=>{
+    //     player1Game.startGame()
+    // })
+
+    // start2.addEventListener('click' , ()=>{
+    //     player2Game.startGame()
+    // })
+
+    // allCards.forEach(card => card.addEventListener('click', () => {
+    //     player1Game.flipCard(card)
+    // } ))
+
+    // allCards.forEach(card => card.addEventListener('click', () => {
+    //     player2Game.flipCard(card)
+    // } ))
+    
+    // const player1 = new Player(player1Game.scoreKeeper)
+    // const player2 = new Player(player2Game.scoreKeeper)
+    // console.log(player1)
+    // console.log(player2)
+
     start.addEventListener('click' , ()=>{
         newGame.startGame()
     })
     // *****FLIPPING CARDS************
+
     allCards.forEach(card => card.addEventListener('click', () => {
         newGame.flipCard(card)
     } ))
 
 }
 game()
+
+
 
 

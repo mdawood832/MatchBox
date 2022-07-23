@@ -48,6 +48,20 @@ nav{
 
 }
 
+.startGamebtn2{
+    font-family: 'Prompt', sans-serif;
+    font-size: 28px;
+    display: inline-block;
+    color: var(--clr-neon);
+    border: var(--clr-neon) 0.01em thin;
+    background-color: transparent;
+    border: none;
+    border-radius: 0.45em;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.75em var(--clr-neon);
+    display: flex; 
+
+}
+
 
 h2{
     /* font-size: 4rem; */
