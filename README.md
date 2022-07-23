@@ -1,7 +1,8 @@
 Match Box is a vibrant card matching game created with HTML, CSS, and JavaScript 
 Here is the link to matchbox: https://mdawood832.github.io/MatchBox/
 
-This is the orginal WireFrame for the game. As I started developing I made some changes. 
+This is the orginal WireFrame for the game. As I started developing I made some changes. <img width="911" alt="Screen Shot 2022-07-12 at 8 12 39 PM" src="https://user-images.githubusercontent.com/101743220/180608659-87455395-c702-4bd6-82d8-3e0ac217f88c.png">
+
 <img width="911" alt="Screen Shot 2022-07-12 at 8 20 21 PM" src="https://user-images.githubusercontent.com/101743220/180589211-fcc5c43a-23a9-4552-86d6-0eba5614d074.png">
 
 Final product: 
