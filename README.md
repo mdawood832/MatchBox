@@ -1,4 +1,4 @@
-Match Box is a vibrant card game created assembled HTML, CSS, and JavaScript 
+Match Box is a vibrant card matching game created with HTML, CSS, and JavaScript 
 
 This is the orginal WireFrame for the game. As I started developing I made some changes. 
 <img width="911" alt="Screen Shot 2022-07-12 at 8 20 21 PM" src="https://user-images.githubusercontent.com/101743220/180589211-fcc5c43a-23a9-4552-86d6-0eba5614d074.png">
