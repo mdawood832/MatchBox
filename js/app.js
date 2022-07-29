@@ -11,6 +11,8 @@ class MatchBox {
         this.timer = document.querySelector('.time')
         this.flips = document.querySelector('.flips')
         this.score = document.querySelector('.score')
+        let finalScorePlayer1  = (this.timeRemaining/this.scoreKeeper)*10
+        let finalScorePlayer2  = (this.timeRemaining/this.scoreKeeper)*10
     }
 
     startGame() {
@@ -18,7 +20,6 @@ class MatchBox {
         this.checkingCard = null
         this.numberOfClicks = 0
         this.scoreKeeper = 0
-        // this.displayPlayer.innerHTML = `Player: ${this.playerNumber}`
         this.timeRemaining = this.time
         this.correctCards =[]
         this.cardsChosen =[]
@@ -68,7 +69,7 @@ class MatchBox {
         this.correctCards.push(card1)
         this.correctCards.push(card2)
         this.scoreKeeper++
-        this.score.innerHTML =`Score: ${this.scoreKeeper}`
+        this.score.innerHTML =`Matches: ${this.scoreKeeper}`
 
         if(this.scoreKeeper === 8){
             this.wonGame()
@@ -106,6 +107,7 @@ class MatchBox {
 
     resetScore () {
         this.score.innerHTML = 'Score'
+    
     }
 
     letPlayerFlipCard (card) {
@@ -118,11 +120,13 @@ class MatchBox {
             this.timeRemaining--
             this.timer.innerHTML = `Time: ${this.timeRemaining}`
             if (this.timeRemaining === 0) {
+                this.stopGame()
                 if (this.scoreKeeper < 8){
+                    this.score.innerHTML = "Lost Game"
                     this.lostGame()
+                    this.doNotShowCards
                 }
 
-                // this.stopGame()
             }
         },1000)
     }
@@ -133,7 +137,8 @@ class MatchBox {
         this.doNotShowCards()
         //stop the timer once game is done
         clearInterval(this.startTimer)
-        this.resetScore()
+        // this.resetScore()
+        // this.resetScore()
     }
 
     wonGame () {
@@ -149,17 +154,14 @@ class MatchBox {
 
     lostGame () {
         this.score.innerHTML = "Lost Game"
-        console.log("lost!")
+        console.log("lost")
         clearInterval(this.startTimer)
         this.doNotShowCards()
-        this.stopGame
+        this.stopGame()
     }
 
 }
 
-// *************************************************
-// PLAYER CLASS - instantiating two players ( 1 & 2 ) 
-// *************************************************
 
 
 
@@ -167,59 +169,8 @@ function game (){
     // selecting all the cards, creating an array from them, 
     // and then passing them to the MatchBox class 
     let start = document.querySelector('.startGamebtn')
-    // let start2 = document.querySelector('.startGamebtn2')
     let allCards = Array.from(document.querySelectorAll('.match-box-card'))
     let newGame = new MatchBox(60, allCards)
-    // ^^^^^^do not touch
-
-    // let player1Game = new MatchBox(10,allCards, 1)
-    // let player2Game = new MatchBox(10,allCards, 2)
-
-    // class Player {
-    //     constructor (score){
-    //         this.score = score
-    //     }
-        
-    
-    // }
-    
-
-
-    // if (finalScorePlayer1 > finalScorePlayer2) {
-    //     return "Player 1 won"
-    // }
-    // else {
-    //     return "Player 2 won"
-    // }
-    
-
-
-    // selecting the start button in html so I can 
-    // add an event listener on click
-    // once the user clicks the start button 
-    // call the method start Game in matchbox class
-    // *****START BUTTON************
-
-    // start.addEventListener('click' , ()=>{
-    //     player1Game.startGame()
-    // })
-
-    // start2.addEventListener('click' , ()=>{
-    //     player2Game.startGame()
-    // })
-
-    // allCards.forEach(card => card.addEventListener('click', () => {
-    //     player1Game.flipCard(card)
-    // } ))
-
-    // allCards.forEach(card => card.addEventListener('click', () => {
-    //     player2Game.flipCard(card)
-    // } ))
-    
-    // const player1 = new Player(player1Game.scoreKeeper)
-    // const player2 = new Player(player2Game.scoreKeeper)
-    // console.log(player1)
-    // console.log(player2)
 
     start.addEventListener('click' , ()=>{
         newGame.startGame()
@@ -229,10 +180,8 @@ function game (){
     allCards.forEach(card => card.addEventListener('click', () => {
         newGame.flipCard(card)
     } ))
-
 }
 game()
-
 
 
 

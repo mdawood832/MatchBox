@@ -185,13 +185,20 @@ h1{
 
 @media (max-width: 480px){
     h1{
-        font-size: 32px;
+        font-size: 24px;
     }
     .matchGif{
         display: none;
     }
+    .MatchBoxLogo{
+        width: 240px;
+    }
+
+    .startGamebtn{
+        font-size: 12px;
+    }
     h2{
-        font-size: 16px;
+        font-size: 12px;
         justify-content:space-evenly;
     }
 
@@ -200,7 +207,7 @@ h1{
         margin: 12px;
     }
     .front,.back{
-        height: 120px;
+        height: 110px;
         width: 80px;
     }
     html{
