@@ -215,3 +215,69 @@ h1{
 
     }
 }
+
+@media (max-width: 800px){
+    h1{
+        font-size: 24px;
+    }
+    .matchGif{
+        display: none;
+    }
+    .MatchBoxLogo{
+        width: 240px;
+    }
+
+    .startGamebtn{
+        font-size: 12px;
+    }
+    h2{
+        font-size: 12px;
+        justify-content:space-evenly;
+    }
+
+    .cards{
+        grid-template-columns: repeat(4,auto);
+        margin: 12px;
+    }
+    .front,.back{
+        height: 110px;
+        width: 70px;
+    }
+    html{
+        min-height: 50vh;
+
+    }
+}
+
+@media (max-width: 1100px){
+    h1{
+        font-size: 24px;
+    }
+    .matchGif{
+        display: none;
+    }
+    .MatchBoxLogo{
+        width: 240px;
+    }
+
+    .startGamebtn{
+        font-size: 24px;
+    }
+    h2{
+        font-size: 24px;
+        justify-content:space-evenly;
+    }
+
+    .cards{
+        grid-template-columns: repeat(4,auto);
+        margin: 16px;
+    }
+    .front,.back{
+        height: 200px;
+        width: 150px;
+    }
+    html{
+        min-height: 50vh;
+
+    }
+}
